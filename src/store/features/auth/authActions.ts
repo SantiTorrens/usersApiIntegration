@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginPayload } from "../../../types/auth";
+import { LoginPayload, googleLoginResponse } from "../../../types/auth";
 import { login } from "../../../api/Services/AuthService";
 
 //TODO Should be implemented with backend.
@@ -12,5 +12,7 @@ export const userLogin = createAsyncThunk(
         return response;
     }
 );
+
+export const googleLogin = createAction<googleLoginResponse>("auth/google-login");
 
 export const logoutUser = createAction("auth/logout");
