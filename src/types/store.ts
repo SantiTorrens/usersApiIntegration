@@ -1,8 +1,8 @@
-import { authUser } from "./auth";
+import { User } from "./user";
 
 export interface AuthState {
     loading: boolean;
-    userInfo: authUser | undefined;
+    userInfo: User | undefined;
     userToken: undefined | string;
     error: unknown | null;
     success: false;

@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import * as S from "./styles"
 import { useAppDispatch } from "../../../hooks/store";
 import { userLogin } from "../../../store/features/auth/authActions";
-import { userLoginPayload } from "../../../types/auth";
+import { LoginPayload } from "../../../types/auth";
 import { FormErrors, FormStateType } from "../../../types/form";
 import useForm from "../../../hooks/useForm";
 import validateLoginForm from "../../../utils/validateForm";
@@ -26,7 +26,7 @@ export default function Login(): ReactElement {
     setErrors(formErrors);
 
     if (Object.keys(formErrors).length === 0) {
-      dispatch(userLogin({ email: formState.email, password: formState.password } as userLoginPayload))
+      dispatch(userLogin({ email: formState.email, password: formState.password } as LoginPayload))
         .then((resultAction) => {
           console.log("🚀 ~ dispatch ~ resultAction:", resultAction);
           toast.success("Login Successful!");
@@ -46,8 +46,8 @@ export default function Login(): ReactElement {
           <S.HeaderContainer>
             <h2 className="animatedHeadline">LOGIN</h2>
           </S.HeaderContainer>
-          <Card classes="flex flex-col w-1/2 1-2/3 gap-8 p-5 py-20 mx-auto my-auto">
-            <S.FormContainer onSubmit={submit} className="flex flex-col w-full max-w-md gap-2 mx-auto">
+          <Card classes="flex flex-col w-1/2 1-2/3 gap-8 p-2 py-10 mx-auto my-auto">
+            <S.FormContainer onSubmit={submit} >
               <FormInput
                 label="Email"
                 type="text"
@@ -65,7 +65,7 @@ export default function Login(): ReactElement {
                 error={errors.password}
               />
 
-              <S.SubmitButton type="submit" className="w-full mt-4">
+              <S.SubmitButton type="submit" >
                 Login
               </S.SubmitButton>
             </S.FormContainer>

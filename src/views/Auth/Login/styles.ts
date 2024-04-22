@@ -33,7 +33,7 @@ export const FormContainer = styled.form`
   margin-right: auto;
   gap: 0.5rem;
   width: 100%;
-  max-width: 400px;
+  width: 80%;;
 `;
 
 // Styled component for the button
