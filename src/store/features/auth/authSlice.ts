@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userLogin } from "./authActions";
+import { googleLogin, userLogin } from "./authActions";
 import { AuthState } from "../../../types/store";
 import { persistReducer } from "redux-persist";
 import { logoutUser } from "./authActions";
 import storage from "redux-persist/lib/storage";
+import { generateToken } from "../../../utils/generateToken";
 
 const initialState: AuthState = {
     loading: false,
@@ -38,6 +39,17 @@ const authSlice = createSlice({
             })
             .addCase(logoutUser, () => {
                 return initialState;
+            })
+            .addCase(googleLogin, (state, { payload }) => {
+                const token = generateToken();
+                state.loading = true;
+                state.userToken = token;
+                state.userInfo = {
+                    username: payload.name,
+                    email: payload.email,
+                    imageUrl: payload.picture,
+                    userToken: token,
+                };
             });
     },
 });

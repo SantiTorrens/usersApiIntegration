@@ -1,24 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { LoginPayload, loginResponse } from "../../types/auth";
 import axiosInstance from "../../utils/axios";
+import { generateToken } from "../../utils/generateToken";
 
 export async function login({
     email,
     password,
 }: LoginPayload): Promise<loginResponse> {
-    const token =
-        Math.random().toString(36).substr(2) +
-        Math.random().toString(36).substr(2);
 
     // DEFINED ONLY FOR MOCK
     const data = {
         success: true,
         user: {
-            userId: 1,
             email: email,
             username: "Testing User",
             imageUrl: "http://example.com",
-            userToken: token,
+            userToken: generateToken(),
         },
     };
 

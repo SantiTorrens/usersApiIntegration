@@ -31,3 +31,7 @@
   background: rgb(59 130 246);
   border-radius: 10px;
 }
+
+#container {
+  padding: 0px !important;
+}
