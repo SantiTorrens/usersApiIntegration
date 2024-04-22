@@ -8,7 +8,7 @@ interface CardProps {
 
 // Styled component for the card container
 const CardContainer = styled.div<CardProps>`
-  background-color: #3b82f6; /* Blue color */
+  background-color: #3b82f6; 
   border-radius: 0.5rem;
 `;
 
