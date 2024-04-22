@@ -14,7 +14,7 @@ export async function login({
         user: {
             email: email,
             username: "Testing User",
-            imageUrl: "http://example.com",
+            imageUrl: null,
             userToken: generateToken(),
         },
     };
