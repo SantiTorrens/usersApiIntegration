@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginPayload, googleLoginResponse } from "../../../types/auth";
+import { LoginPayload, googleLoginResponse, loginResponse } from "../../../types/auth";
 import { login } from "../../../api/Services/AuthService";
 
 //TODO Should be implemented with backend.
@@ -7,7 +7,7 @@ import { login } from "../../../api/Services/AuthService";
 
 export const userLogin = createAsyncThunk(
     "auth/login",
-    async (loginPayload: LoginPayload) => {
+    async (loginPayload: LoginPayload): Promise<loginResponse> => {
         const response = await login(loginPayload);
         return response;
     }
