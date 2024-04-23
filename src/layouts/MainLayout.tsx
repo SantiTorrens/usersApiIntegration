@@ -30,7 +30,7 @@ const ChildrenContainer = styled.div`
   margin-right: auto;
   padding: 2rem`
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <MainLayoutContainer>
       <Header />
@@ -40,6 +40,5 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <Footer />
     </MainLayoutContainer>
   );
-};
+}
 
-export default MainLayout;
