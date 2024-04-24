@@ -5,6 +5,7 @@ export interface UsersState {
     error: unknown | null;
     selectedUser: null | apiUser;
     showEditModal: boolean;
+    showCreateModal: boolean;
     success: boolean;
 }
 
@@ -17,6 +18,12 @@ export interface UsersStateData {
     users: apiUser[];
 }
 
+export interface createUserPayload {
+  email: string;
+  first_name: string;
+  last_name: string;
+  job?: string;
+}
 export interface apiUser {
     id: number;
     email: string;

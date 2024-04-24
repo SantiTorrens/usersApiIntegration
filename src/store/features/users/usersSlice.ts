@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+    createUserAction,
     deleteUser,
     fetchUserById,
     getUsers,
     setSelectedUser,
+    toggleCreateModal,
     unSetSelectedUser,
     updatePagination,
     updateUserAction,
@@ -27,6 +29,7 @@ const initialState: UsersState = {
     },
     selectedUser: null,
     showEditModal: false,
+    showCreateModal: false,
     error: null,
     success: false,
 };
@@ -61,6 +64,7 @@ const usersSlice = createSlice({
                 });
 
                 return {
+                    ...state,
                     data: {
                         users: uniqueArray,
                         currentPage: data.page,
@@ -76,12 +80,11 @@ const usersSlice = createSlice({
                     loading: false,
                     fetched: true,
                     error: false,
-                    selectedUser: null,
-                    showEditModal: false,
                     success: true,
                 };
             })
             .addCase(getUsers.rejected, (state, { payload }) => {
+                toast.error("There was an error");
                 state.loading = false;
                 state.fetched = false;
                 state.error = payload;
@@ -116,7 +119,7 @@ const usersSlice = createSlice({
                 state.showEditModal = false;
             })
             .addCase(fetchUserById.rejected, (state) => {
-                toast.success("There was an error fetching");
+                toast.error("There was an error fetching");
                 state.selectedUser = null;
                 state.showEditModal = false;
             })
@@ -143,6 +146,19 @@ const usersSlice = createSlice({
             .addCase(unSetSelectedUser, (state) => {
                 state.selectedUser = null;
                 state.showEditModal = false;
+            })
+            .addCase(toggleCreateModal, (state) => {
+                state.showCreateModal = !state.showCreateModal;
+            })
+            .addCase(createUserAction.fulfilled, (state, { payload }) => {
+                toast.success("User created successfully");
+                const newUser = payload as apiUser;
+                state.data.users.push(newUser);
+                state.showCreateModal = false;
+            })
+            .addCase(createUserAction.rejected, (state) => {
+                toast.error("There was an error creating");
+                state.showCreateModal = false;
             })
             .addCase(logoutUser, () => {
                 return initialState;

@@ -18,7 +18,7 @@ export const InnerContainer = styled.div`
     width: 100%;
     align-items: center;
     margin: 0 auto;
-    @media (min-width: 768px) {
+    @media (min-width: 820px) {
         flex-direction: row;
     }
 `;

@@ -21,10 +21,10 @@ const AuthLayoutContainer = styled.div`
 // Styled component for the main content container
 const MainContent = styled.div`
   display: flex;
-  @media (min-width: 720px) {
+   @media (min-width: 1025px) {
     flex: 1
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
@@ -35,7 +35,7 @@ width: 100%;
 margin-left: auto;
 margin-right: auto;
 padding: 1rem;
-@media (min-width: 720px) {
+ @media (min-width: 1025px) {
   padding: 2rem
   width: 70%;
 }
@@ -46,7 +46,7 @@ const SidebarContainer = styled.div`
   padding: 2rem;
   height: 100%;
   background-color: #3498db; 
-  @media (min-width: 720px) {
+   @media (min-width: 1025px) {
 
     width: 25%;
   }

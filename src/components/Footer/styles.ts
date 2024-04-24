@@ -6,7 +6,7 @@ export const FooterContainer = styled.div`
   height: 5rem; 
   margin-top: auto;
   background-color: #ccc;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0.5rem;
   }
 `;

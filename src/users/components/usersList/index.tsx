@@ -1,12 +1,12 @@
 // import UsersTableContainer from "../../../components/Table/UsersTableContainer";
 import StyledButton from "../../../components/Button/Index";
 import { useAppDispatch } from "../../../hooks/store";
-import { deleteUser, getUsers, fetchUserById, updatePagination, setSelectedUser } from "../../../store/features/users/usersActions";
+import { deleteUser, getUsers, fetchUserById, updatePagination, setSelectedUser, toggleCreateModal } from "../../../store/features/users/usersActions";
 import { UsersStateData } from "../../../types/apiUsers";
 import * as S from "./styles"
 import { Table } from 'antd';
 import type { TableProps } from 'antd';
-
+import userPlaceholder from "/user.png"
 interface UsersListProps {
   data: UsersStateData;
 }
@@ -27,7 +27,7 @@ export default function UsersList({ data }: UsersListProps) {
       title: 'Avatar',
       render: (url) => {
         return (
-          <S.Image src={url} />
+          <S.Image src={url !== undefined ? url : userPlaceholder} />
         )
       },
 
@@ -46,6 +46,11 @@ export default function UsersList({ data }: UsersListProps) {
       dataIndex: 'email',
       key: 'email',
       title: 'Email',
+    },
+    {
+      dataIndex: 'job',
+      key: 'job',
+      title: 'Job',
     },
     {
       key: 'actions',
@@ -67,13 +72,13 @@ export default function UsersList({ data }: UsersListProps) {
   const handleEdit = (userId: number): void => {
     dispatch(setSelectedUser(userId))
   }
-  
+
   const handleView = (userId: number): void => {
     dispatch(fetchUserById(userId))
   }
 
 
-  const onPaginationChange = (page: number) => {
+  const onPaginationChange = (page: number): void => {
     if (!data.fetchedPages.includes(page)) {
       dispatch(getUsers(page))
     }
@@ -82,6 +87,10 @@ export default function UsersList({ data }: UsersListProps) {
 
   return (
     <S.TableContainer>
+      <S.HeaderContainer>
+        <S.Headline>Users List</S.Headline>
+        <StyledButton text="Create User" backgroundColor="blue" handleAction={() => dispatch(toggleCreateModal())} />
+      </S.HeaderContainer>
       <Table
         dataSource={data.users}
         columns={columns}
