@@ -7,7 +7,7 @@ import { googleLogin, userLogin } from "../../../store/features/auth/authActions
 import { LoginPayload, googleResponse } from "../../../types/auth";
 import { FormErrors, FormStateType } from "../../../types/form";
 import useForm from "../../../hooks/useForm";
-import validateLoginForm from "../../../utils/validateForm";
+import {validateLoginForm} from "../../../utils/validateForm";
 import Card from "../../../components/Card";
 import FormInput from "../../../components/FormInput";
 import { GoogleLogin } from '@react-oauth/google';

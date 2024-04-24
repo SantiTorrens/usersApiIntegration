@@ -10,7 +10,7 @@ import Users from './views/Users/index.tsx';
 function App() {
   return (
     <div className="w-full h-full">
-      <Toaster position="bottom-right" richColors/>
+      <Toaster position="top-right" richColors/>
 
       <Router>
         <div className="w-full h-full">

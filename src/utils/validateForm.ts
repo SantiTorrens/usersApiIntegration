@@ -1,6 +1,6 @@
-import { FormErrors, FormStateType } from "../types/form";
+import { CreateUserFormErrors, FormErrors, FormStateType } from "../types/form";
 
-export default function validateLoginForm(
+export function validateLoginForm(
     formState: FormStateType
 ): FormErrors {
     const errors: FormErrors = {};
@@ -21,6 +21,22 @@ export default function validateLoginForm(
         password !== formState.passwordConfirmation || formState.passwordConfirmation === '' 
     ) {
         errors.passwordConfirmation = "Passwords do not match";
+    }
+
+    return errors;
+}
+
+export function validateCreateUserForm(
+    formState: FormStateType
+): CreateUserFormErrors {
+    const errors: CreateUserFormErrors = {};
+
+    if (!formState.first_name) {
+        errors.first_name = "First Name is required";
+    }
+
+    if (!formState.job) {
+        errors.job = "Job is required";
     }
 
     return errors;
