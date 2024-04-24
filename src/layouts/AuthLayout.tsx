@@ -15,8 +15,8 @@ const AuthLayoutContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw; 
-  overflow: hidden;
-`;
+  overflow-x: hidden;
+  `;
 
 // Styled component for the main content container
 const MainContent = styled.div`
@@ -31,6 +31,7 @@ const MainContent = styled.div`
 
 const ChildrenContainer = styled.div`
 height: 100%;
+width: 100%;
 margin-left: auto;
 margin-right: auto;
 padding: 1rem;

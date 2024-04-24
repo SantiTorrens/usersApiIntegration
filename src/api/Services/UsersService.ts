@@ -1,9 +1,5 @@
 import { AxiosResponse } from "axios";
-import {
-    UsersApiResponse,
-    apiUser,
-    apiUserResponse,
-} from "../../types/apiUsers";
+import { UsersApiResponse, apiUser } from "../../types/apiUsers";
 import axiosInstance from "../../utils/axios";
 
 const apiUrl = import.meta.env.VITE_REQRES_API_URL as string;
@@ -14,17 +10,6 @@ export async function getUsersByPage(
     try {
         const response: AxiosResponse = await axiosInstance.get(
             apiUrl + `/users?page=${page}`
-        );
-        response.data.data = response.data.data.map(
-            (user: apiUserResponse): apiUser => {
-                return {
-                    avatar: user.avatar,
-                    id: user.id,
-                    email: user.email,
-                    firstName: user.first_name,
-                    lastName: user.last_name,
-                };
-            }
         );
         return response.data;
     } catch (error) {
@@ -41,4 +26,35 @@ export async function removeUser(userId: number): Promise<number | void> {
         console.log("🚀 ~ deleteUser ~ error:", error);
         return;
     }
+}
+
+export async function getUserById(userId: number): Promise<apiUser | void> {
+    try {
+        const response: AxiosResponse = await axiosInstance.get(
+            apiUrl + `/users/${userId}`
+        );
+        console.log("🚀 ~ getUserById ~ response:", response)
+        return response.data.data as apiUser;
+    } catch (error) {
+        console.log("🚀 ~ getUserById ~ error:", error);
+        return;
+    }
+}
+
+export async function updateUser(user: apiUser): Promise<apiUser | void> {
+
+  try {
+    const response: AxiosResponse = await axiosInstance.patch(apiUrl + `/users/${user.id}`,{
+      first_name: user.first_name,
+      last_name: user.last_name,
+      job: user.job
+    });
+    return {
+      ...user,
+      ...response.data.data as apiUser
+    }
+  } catch (error) {
+    console.log("🚀 ~ updateUser ~ error:", error)
+    return;
+  }
 }

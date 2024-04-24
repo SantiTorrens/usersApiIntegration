@@ -3,9 +3,12 @@ import styled from "styled-components";
 // Styled component for the footer container
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 4rem; /* Adjust height as needed */
+  height: 5rem; 
   margin-top: auto;
-  background-color: #ccc; /* Gray color */
+  background-color: #ccc;
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
 `;
 
 // Styled component for the inner container

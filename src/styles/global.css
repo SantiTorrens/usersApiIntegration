@@ -36,21 +36,16 @@
     padding: 0px !important;
 }
 
-.MuiDataGrid-row {
-    color: #fff;
+.ant-pagination-item > a {
+    color: #fff !important;
+}
+.ant-pagination-item-link > span > svg {
+    color: #fff !important;
 }
 
-.MuiDataGrid-cell {
-    display: flex;
-    justify-content: center !important;
-    align-items: center;
+.ant-pagination-item-link:disabled > span > svg {
+    color: gray !important;
 }
-.MuiDataGrid-columnHeaderTitleContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.MuiToolbar-root {
-  color: #fff;
+.ant-pagination-item-active > a {
+  color: #000 !important;
 }

@@ -1,90 +1,97 @@
 // import UsersTableContainer from "../../../components/Table/UsersTableContainer";
+import StyledButton from "../../../components/Button/Index";
 import { useAppDispatch } from "../../../hooks/store";
-import { deleteUser, getUsers } from "../../../store/features/users/usersActions";
+import { deleteUser, getUsers, fetchUserById, updatePagination, setSelectedUser } from "../../../store/features/users/usersActions";
 import { UsersStateData } from "../../../types/apiUsers";
 import * as S from "./styles"
-import { DataGrid, GridColDef, GridPaginationModel } from '@mui/x-data-grid';
-
+import { Table } from 'antd';
+import type { TableProps } from 'antd';
 
 interface UsersListProps {
   data: UsersStateData;
 }
 export default function UsersList({ data }: UsersListProps) {
   const dispatch = useAppDispatch();
-  const columns: GridColDef<(typeof data.users)[number]>[] = [
-    { field: 'id', headerName: 'ID', width: 90 },
+  const columns: TableProps<(typeof data.users)[number]>['columns'] = [
     {
-      field: 'avatar',
-      headerName: 'Avatar',
-      sortable: false,
-      width: 100,
-      renderCell: (params) => {
-        return (
-          <S.Image src={params.value} />
-        )
-      }
-    },
-    {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 250,
-      editable: false,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Last name',
-      width: 250,
-      editable: false,
-    },
-    {
-      field: 'email',
-      headerName: 'Email',
-      type: 'string',
-      width: 250,
-      editable: false,
-    },
-    {
-      field: 'actions',
-      headerName: 'Actions',
-      width: 250,
-      renderCell: (params) => {
-        return (
-          <S.ButtonsContainer>
-            <S.DeleteButton onClick={() => handleDelete(params.id as number)}>Delete User</S.DeleteButton>
-            <S.EditButton onClick={() => handleEdit(params.id as number)}>Edit User</S.EditButton>
-          </S.ButtonsContainer>
-        )
-      }
+      dataIndex: 'id',
+      key: 'id',
+      title: 'ID',
+      sorter: (a, b) => a.id - b.id,
+      sortDirections: ["descend", "ascend"]
 
+    },
+    {
+      dataIndex: 'avatar',
+      key: "avatar",
+      title: 'Avatar',
+      render: (url) => {
+        return (
+          <S.Image src={url} />
+        )
+      },
+
+    },
+    {
+      dataIndex: 'first_name',
+      key: 'first_name',
+      title: 'First name',
+    },
+    {
+      dataIndex: 'last_name',
+      key: 'last_name',
+      title: 'Last name',
+    },
+    {
+      dataIndex: 'email',
+      key: 'email',
+      title: 'Email',
+    },
+    {
+      key: 'actions',
+      title: 'Actions',
+      render: (_, record) => (
+        <S.ButtonsContainer>
+          <StyledButton backgroundColor="red" handleAction={() => handleDelete(record.id)} text="Delete User" />
+          <StyledButton backgroundColor="blue" text="Edit User" handleAction={() => handleEdit(record.id)} />
+          <StyledButton text="View User" handleAction={() => handleView(record.id)} />
+        </S.ButtonsContainer>
+      )
     }
   ];
 
-  const handleDelete = (userId: number) => {
+  const handleDelete = (userId: number): void => {
     dispatch(deleteUser(userId));
   }
 
-  const handleEdit = (userId: number) => {
-    console.log("🚀 ~ handleEdit ~ userId:", userId)
-
+  const handleEdit = (userId: number): void => {
+    dispatch(setSelectedUser(userId))
   }
-  const onPaginationChange = (paginationData: GridPaginationModel) => {
-    if (!data.fetchedPages.includes(paginationData.page)) {
-      dispatch(getUsers(paginationData.page))
+  
+  const handleView = (userId: number): void => {
+    dispatch(fetchUserById(userId))
+  }
+
+
+  const onPaginationChange = (page: number) => {
+    if (!data.fetchedPages.includes(page)) {
+      dispatch(getUsers(page))
     }
+    dispatch(updatePagination(page))
   }
 
   return (
-    <DataGrid
-      rows={data?.users}
-      columns={columns}
-      disableRowSelectionOnClick
-      rowCount={data.total}
-      rowHeight={100}
-      paginationMode="server"
-      paginationModel={{ pageSize: 5, page: data.currentPage }}
-      paginationMeta={{ hasNextPage: data.currentPage < data.totalPages }}
-      onPaginationModelChange={(data) => onPaginationChange(data)}
-      pageSizeOptions={[5]}
-    />
+    <S.TableContainer>
+      <Table
+        dataSource={data.users}
+        columns={columns}
+        scroll={{ x: 400 }}
+        pagination={{
+          pageSize: 5,
+          current: data.currentPage,
+          onChange: onPaginationChange,
+        }} />
+    </S.TableContainer>
+
   )
 }

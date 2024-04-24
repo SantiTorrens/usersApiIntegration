@@ -3,6 +3,8 @@ export interface UsersState {
     fetched: boolean;
     data: UsersStateData;
     error: unknown | null;
+    selectedUser: null | apiUser;
+    showEditModal: boolean;
     success: boolean;
 }
 
@@ -10,24 +12,17 @@ export interface UsersStateData {
     currentPage: number;
     perPage: number;
     total: number;
-    fetchedPages: number[];
     totalPages: number;
+    fetchedPages: number[];
     users: apiUser[];
-}
-
-export interface apiUserResponse {
-    id: number;
-    email: string;
-    first_name: string;
-    last_name: string;
-    avatar: string;
 }
 
 export interface apiUser {
     id: number;
     email: string;
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
+    job?: string;
     avatar: string;
 }
 

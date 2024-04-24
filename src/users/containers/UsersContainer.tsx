@@ -15,9 +15,7 @@ export default function UsersContainer(): ReactElement {
     fetchUsers(1)
   }, [])
   return (
-    <div>
-      <UsersList data={usersStateData} />
-    </div>
+    <UsersList data={usersStateData} />
 
   )
 } 
