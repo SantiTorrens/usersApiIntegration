@@ -57,8 +57,8 @@ export default function UsersList({ data }: UsersListProps) {
       title: 'Actions',
       render: (_, record) => (
         <S.ButtonsContainer>
-          <StyledButton backgroundColor="red" handleAction={() => handleDelete(record.id)} text="Delete User" />
-          <StyledButton backgroundColor="blue" text="Edit User" handleAction={() => handleEdit(record.id)} />
+          <StyledButton background="red" handleAction={() => handleDelete(record.id)} text="Delete User" />
+          <StyledButton background="blue" text="Edit User" handleAction={() => handleEdit(record.id)} />
           <StyledButton text="View User" handleAction={() => handleView(record.id)} />
         </S.ButtonsContainer>
       )
@@ -89,7 +89,7 @@ export default function UsersList({ data }: UsersListProps) {
     <S.TableContainer>
       <S.HeaderContainer>
         <S.Headline>Users List</S.Headline>
-        <StyledButton text="Create User" backgroundColor="blue" handleAction={() => dispatch(toggleCreateModal())} />
+        <StyledButton text="Create User" background="blue" handleAction={() => dispatch(toggleCreateModal())} />
       </S.HeaderContainer>
       <Table
         dataSource={data.users}
