@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ButtonProps {
-  backgroundColor?: string;
+  background?: string;
 }
 export const Button = styled.span<ButtonProps>`
     cursor: pointer;
@@ -12,5 +12,5 @@ export const Button = styled.span<ButtonProps>`
     border-radius: 0.5rem;
     width: fit-content;
     text-align: center;
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : 'gray'};
+    background-color: ${props => props.background ? props.background : 'gray'};
 `;

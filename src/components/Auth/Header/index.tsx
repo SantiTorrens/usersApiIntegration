@@ -21,7 +21,7 @@ export default function AuthHeader(): ReactElement {
       <S.InnerContainer>
         <S.LogoLink to="/users" >Cloud District</S.LogoLink>
         <S.logoutButton onClick={handleLogout} >Logout</S.logoutButton>
-        <S.Image referrerPolicy="no-referrer" src={userInfo?.imageUrl ? userInfo.imageUrl : userPlaceholder}></S.Image>
+        <S.Image referrerPolicy="no-referrer" alt="User Image" src={userInfo?.imageUrl ? userInfo.imageUrl : userPlaceholder}></S.Image>
       </S.InnerContainer>
     </S.HeaderContainer>
   );
