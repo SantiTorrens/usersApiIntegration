@@ -23,7 +23,7 @@ export default function Modal({ children, handleCloseModal, submitButton = false
         {children}
         <S.ButtonsContainer>
           {submitButton &&
-            <StyledButton text="Submit" handleAction={handleSubmit} backgroundColor="blue" />
+            <StyledButton text="Submit" handleAction={handleSubmit} background="blue" />
           }
           <StyledButton text="Close" handleAction={handleCloseModal} />
         </S.ButtonsContainer>
