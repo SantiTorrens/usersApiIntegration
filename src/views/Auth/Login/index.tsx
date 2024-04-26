@@ -54,9 +54,9 @@ export default function Login(): ReactElement {
     <S.LoginPageContainer>
       <S.LoginFormContainer>
         <S.HeaderContainer>
-          <h2 className="animatedHeadline">LOGIN</h2>
+          <S.Headline className="animatedHeadline">LOGIN</S.Headline>
         </S.HeaderContainer>
-        <Card classes="flex items-center flex-col w-1/2 1-2/3 gap-8 p-2 py-10 mx-auto my-auto">
+        <Card classes="flex items-center flex-col lg:w-1/2 w-full md:w-2/3 gap-8 p-2 py-10 mx-auto my-auto">
           <S.FormContainer onSubmit={submit} >
             <FormInput
               label="Email"

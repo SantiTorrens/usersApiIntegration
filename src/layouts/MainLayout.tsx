@@ -28,7 +28,12 @@ const ChildrenContainer = styled.div`
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem`
+  padding: 2rem
+  @media (max-width: 1024px) {
+    padding: 0.5rem
+  }
+
+  `
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (

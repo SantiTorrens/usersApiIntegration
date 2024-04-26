@@ -19,10 +19,10 @@ export interface UsersStateData {
 }
 
 export interface createUserPayload {
-  email: string;
-  first_name: string;
-  last_name: string;
-  job?: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+    job?: string;
 }
 export interface apiUser {
     id: number;

@@ -1,9 +1,5 @@
 .animatedHeadline {
-    font-size: 150px;
-    line-height: 240px;
-    color: transparent;
-    -webkit-text-stroke: 2px white;
-    text-align: center;
+    
     background: url("/public/stripes.jpg");
     -webkit-background-clip: text;
     background-position: 0 0;
