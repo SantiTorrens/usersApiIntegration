@@ -127,7 +127,7 @@ dompurify/dist/purify.es.mjs:
 `,J5=vt.button`
     color: #fff;
     margin-left: auto;
-`;function Z5(){const e=Qa(t=>t.auth.userToken);return Re.jsx(X5,{children:Re.jsxs(Y5,{children:[Re.jsx(Q5,{to:e?"/users":"/",children:"Cloud District"}),e&&Re.jsx(Cb,{"data-testid":"link-redirection",to:"/usersApiIntegration/users",children:Re.jsx(J5,{children:"Dashboard"})})]})})}const ez=vt.div`
+`;function Z5(){const e=Qa(t=>t.auth.userToken);return Re.jsx(X5,{children:Re.jsxs(Y5,{children:[Re.jsx(Q5,{to:e?"/usersApiIntegration/users":"/usersApiIntegration/",children:"Technical Test"}),e&&Re.jsx(Cb,{"data-testid":"link-redirection",to:"/usersApiIntegration/users",children:Re.jsx(J5,{children:"Dashboard"})})]})})}const ez=vt.div`
 
   display: flex;
   flex-direction: column;
@@ -617,7 +617,7 @@ html body {
     height: 3.5rem;
     width: 3.5rem;
     cursor: pointer;
-`;function WJ(){const e=Ss(),t=Qa(o=>o.auth.userInfo),n=qm(),r=async()=>{e(Hb()),kr.success("logged outSuccessful!"),n("/usersApiIntegration/")};return Re.jsx(FJ,{children:Re.jsxs(BJ,{children:[Re.jsx(HJ,{to:"/usersApiIntegration/users",children:"Cloud District"}),Re.jsx(KJ,{onClick:r,children:"Logout"}),Re.jsx(VJ,{referrerPolicy:"no-referrer",alt:"User Image",src:t!=null&&t.imageUrl?t.imageUrl:h_})]})})}const UJ=vt.div`
+`;function WJ(){const e=Ss(),t=Qa(o=>o.auth.userInfo),n=qm(),r=async()=>{e(Hb()),kr.success("logged outSuccessful!"),n("/usersApiIntegration/")};return Re.jsx(FJ,{children:Re.jsxs(BJ,{children:[Re.jsx(HJ,{to:"/usersApiIntegration/users",children:"Technical Test"}),Re.jsx(KJ,{onClick:r,children:"Logout"}),Re.jsx(VJ,{referrerPolicy:"no-referrer",alt:"User Image",src:t!=null&&t.imageUrl?t.imageUrl:h_})]})})}const UJ=vt.div`
 
   display: flex;
   flex-direction: column;
