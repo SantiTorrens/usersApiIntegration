@@ -24,9 +24,9 @@ jobs:
     - name: 'Installing deps'    
       run: npm install
     - name: 'Test'
-      run: npm test
+      run: npm run test
     - name: 'Build'
-      run: npm build #--if-present
+      run: npm run build #--if-present
     - name: 'Deploy'
       uses: peaceiris/actions-gh-pages@v3
       with:
