@@ -1,4 +1,4 @@
-# Cloud District Technical Test
+# Technical Test
 
 Welcome to the technical test repository! This repository contains the codebase for a web application built as part of a technical assessment.
 
