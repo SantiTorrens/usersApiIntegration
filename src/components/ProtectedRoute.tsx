@@ -11,7 +11,7 @@ import { useAppSelector } from '../hooks/store';
     const location = useLocation();
 
     if (!userToken) {
-      return <Navigate to="/" state={{ from: location }} replace />
+      return <Navigate to="/usersApiIntegration/" state={{ from: location }} replace />
     }
     return children
 
