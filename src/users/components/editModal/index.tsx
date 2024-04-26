@@ -19,6 +19,7 @@ export default function EditUserModal({ user, edit }: EditUserModalProps): React
     first_name: user.first_name,
     last_name: user.last_name,
     email: user.email,
+    job: user.job as string,
   });
 
 
@@ -59,6 +60,14 @@ export default function EditUserModal({ user, edit }: EditUserModalProps): React
             label="Last Name"
             value={formState.last_name}
             name="last_name"
+            type="text"
+            handleInput={handleInput}
+          />
+          <FormInput
+            disabled={!edit}
+            label="Job"
+            value={formState.job}
+            name="job"
             type="text"
             handleInput={handleInput}
           />
