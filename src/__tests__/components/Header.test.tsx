@@ -20,8 +20,8 @@ describe('Header', () => {
       </MemoryRouter>
     );
 
-    const logoLink = getByText('Cloud District');
-    expect(logoLink.getAttribute('href')).toBe('/');
+    const logoLink = getByText('Technical Test');
+    expect(logoLink.getAttribute('href')).toBe('/usersApiIntegration/');
   });
 
   test('renders the logo link to dashboard when user is authenticated', () => {
@@ -33,8 +33,8 @@ describe('Header', () => {
       </MemoryRouter>
     );
 
-    const logoLink = getByText('Cloud District');
-    expect(logoLink.getAttribute('href')).toBe('/users');
+    const logoLink = getByText('Technical Test');
+    expect(logoLink.getAttribute('href')).toBe('/usersApiIntegration/users');
   });
 
   test('renders the dashboard button when user is authenticated', () => {
