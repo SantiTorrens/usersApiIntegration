@@ -15,11 +15,11 @@ function App() {
       <Router>
         <div className="w-full h-full">
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/usersApiIntegration/" element={<Login />} />
 
             {/* Auth Routes */}
 
-            <Route path="/users" element={<ProtectedRoute><Users /> </ProtectedRoute>} />
+            <Route path="/usersApiIntegration/users" element={<ProtectedRoute><Users /> </ProtectedRoute>} />
           </Routes>
         </div>
       </Router>

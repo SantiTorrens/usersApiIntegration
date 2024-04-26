@@ -13,13 +13,13 @@ export default function AuthHeader(): ReactElement {
   const handleLogout = async () => {
     dispatch(logoutUser())
     toast.success("logged outSuccessful!");
-    navigate("/");
+    navigate("/usersApiIntegration/");
   };
 
   return (
     <S.HeaderContainer>
       <S.InnerContainer>
-        <S.LogoLink to="/users" >Cloud District</S.LogoLink>
+        <S.LogoLink to="/usersApiIntegration/users" >Cloud District</S.LogoLink>
         <S.logoutButton onClick={handleLogout} >Logout</S.logoutButton>
         <S.Image referrerPolicy="no-referrer" alt="User Image" src={userInfo?.imageUrl ? userInfo.imageUrl : userPlaceholder}></S.Image>
       </S.InnerContainer>

@@ -33,7 +33,7 @@ export default function Login(): ReactElement {
           console.log("🚀 ~ dispatch ~ resultAction:", resultAction);
           toast.success("Login Successful!");
           resetForm();
-          navigate("/users");
+          navigate("/usersApiIntegration/users");
         })
         .catch((errorAction) => {
           console.log("🚀 ~ dispatch ~ errorAction:", errorAction);
@@ -46,7 +46,7 @@ export default function Login(): ReactElement {
     if (credentialResponse) {
       dispatch(googleLogin(jwtDecode(credentialResponse.credential)));
       toast.success("Login Successful!");
-      navigate("/users");
+      navigate("/usersApiIntegration/users");
     }
   }
 

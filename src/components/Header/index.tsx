@@ -11,7 +11,7 @@ export default function Header(): ReactElement {
     <S.HeaderContainer>
       <S.InnerContainer>
         <S.LogoLink to={userToken ? '/users' : '/'}>Cloud District</S.LogoLink>
-        {userToken && <Link data-testid="link-redirection" to="/users"><S.DashboardButton  >Dashboard</S.DashboardButton></Link>}
+        {userToken && <Link data-testid="link-redirection" to="/usersApiIntegration/users"><S.DashboardButton  >Dashboard</S.DashboardButton></Link>}
       </S.InnerContainer>
     </S.HeaderContainer>
   );
