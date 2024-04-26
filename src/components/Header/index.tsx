@@ -10,8 +10,8 @@ export default function Header(): ReactElement {
   return (
     <S.HeaderContainer>
       <S.InnerContainer>
-        <S.LogoLink to={userToken ? '/usersApiIntegration/users' : '/'}>Technical Test</S.LogoLink>
-        {userToken && <Link data-testid="link-redirection" to="/usersApiIntegration/"><S.DashboardButton  >Dashboard</S.DashboardButton></Link>}
+        <S.LogoLink to={userToken ? '/usersApiIntegration/users' : '/usersApiIntegration/'}>Technical Test</S.LogoLink>
+        {userToken && <Link data-testid="link-redirection" to="/usersApiIntegration/users"><S.DashboardButton  >Dashboard</S.DashboardButton></Link>}
       </S.InnerContainer>
     </S.HeaderContainer>
   );
