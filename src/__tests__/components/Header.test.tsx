@@ -47,7 +47,7 @@ describe('Header', () => {
     );
 
     const dashboardButton = screen.getByTestId('link-redirection');
-    expect(dashboardButton.getAttribute('href')).toBe('/users');
+    expect(dashboardButton.getAttribute('href')).toBe('/usersApiIntegration/users');
   });
 
   test('does not render the dashboard button when user is not authenticated', () => {
